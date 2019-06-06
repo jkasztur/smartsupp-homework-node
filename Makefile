@@ -32,4 +32,4 @@ _start-watch:
 	nodemon ${NODEMON_EXTRA_ARGS} --watch src --watch bin --ext js,ts --delay 2 --exec 'make _start'
 
 _test:
-	jest ${JEST_ARGS} --verbose --runInBand --detectOpenHandles
+	jest --verbose --runInBand --detectOpenHandles

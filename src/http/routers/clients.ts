@@ -36,8 +36,15 @@ export function createRouter(clientStorage: ClientStorage) {
 		ctx.body = {ok: true}
 	})
 
-	router.delete('/clients/:id', async (ctx: Context) => {
-		// TODO: implement
+	// TODO: implement(done)
+	router.delete('/clients/:id', validate({
+		params: {
+			id: Joi.string().required(),
+		}
+	}),async (ctx: Context) => {
+		await clientStorage.deleteClient(ctx.params.id)
+		
+		ctx.body = {ok: true}
 	})
 
 	return router
